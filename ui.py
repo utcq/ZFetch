@@ -44,8 +44,6 @@ hline="━"
 #   ╭  ╮    ╰  ╯
 
 
-most = max(lens)
-# print(most)
 def retrieveL(dlen, end):
     return " " * ((end - dlen) - 1)
 
@@ -73,7 +71,7 @@ def menu(info):
 
     spacing = " " * 4
     fields = [
-        f"{Fore.YELLOW}{Style.BRIGHT}DISTRO:{spacing}{distro}{newdilen}{Style.NORMAL}{Fore.RESET}",
+        f"{Fore.YELLOW}{Style.BRIGHT}DISTRO:{Style.RESET_ALL}{Fore.BLUE}{spacing}{distro}{newdilen}{Style.RESET_ALL}{Fore.RESET}",
         f"   CPU:{spacing}{cpu}{newcplen}",
         f"   RAM:{spacing}{ram}{newrmlen}",
     ]
