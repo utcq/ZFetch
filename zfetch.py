@@ -1,8 +1,12 @@
-from __future__ import print_function
+import os
+import sys
+if os.name == 'nt':
+    id = lambda: "windows"
+else:
+    from distro import id
 from time import time
 import typing
 
-import ui
 import psutil
 
 import platform
@@ -36,7 +40,7 @@ def get_human_readable_memory_size(bytes, suffix="B"):
         bytes /= factor
 
 class ZFetch:
-    sys_obj: typing.Any
+    sys_obj: platform.uname_result
     cpu_freq: typing.Any
     svmem: typing.Any
     
@@ -61,17 +65,31 @@ class ZFetch:
         return psutil.boot_time()
     
     @property
-    def get_cpu_freq(self):
+    def cpu_frequency(self):
         return (time(), self.cpu_freq.current)
     
     @property
-    def get_ram_size(self):
+    def ram_size(self):
         return self.svmem.total
     
     @property
-    def get_ram_status(self):
+    def ram_status(self):
         return (self.svmem.avaible, self.svmem.used)
     
     @property
-    def get_ram_percentage(self):
+    def ram_percentage(self):
         return self.svmem.percentage
+
+    
+
+    @property
+    def distro_sym(self):
+        var = []
+        cls = DistroIcons().__class__
+        for v in cls.__dict__:
+            if not callable(getattr(cls, v)) and not v.startswith("__"):
+                var.append(v)
+        
+        for distro in var:
+            if distro in id():
+                return getattr(cls, distro)

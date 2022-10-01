@@ -38,6 +38,7 @@ class DistroIcons:
     zorin=""
     windows=""
 
+
 vline="┃"
 hline="━"
 
