@@ -102,6 +102,20 @@ class ZFetch:
         return DistroIcons.linux
 
 if __name__ == "__main__":
-    cpu = str(ZFetch().cpu_name) + " (" + str(ZFetch().cpu_cores) + ") " + '.'.join(str(int(ZFetch().cpu_frequency[0] / ZFetch().cpu_frequency[1] / ZFetch().cpu_cores))[0:2]) + "GHz"
+    cpu = str(ZFetch().cpu_name) + " (" + str(ZFetch().cpu_cores) + ") " + get_human_readable_freq_size(ZFetch().cpu_frequency[0])
     ram_size = get_human_readable_memory_size(ZFetch().ram_size)
-    print(ram_size)
+    distro = id()
+    if distro != "windows":
+        gpu = os.popen("lspci -vnn | grep Graphic | grep Subsystem").read().replace("Subsystem:", "").strip()
+    else:
+        gpu = "Unknown"
+
+    if distro != "windows":
+        wm = os.popen("echo $XDG_CURRENT_DESKTOP").read().strip()
+    else:
+        wm = "dWm"
+
+
+
+
+

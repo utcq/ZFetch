@@ -67,9 +67,9 @@ def menu(info):
     ram = info[2]
     gpu = info[3]
     wm = info[4]
-    pkgs = info[5]
-    uptime = info[6]
-    kernel = info[7]
+    #pkgs = info[5]
+    uptime = info[5]
+    kernel = info[6]
 
     end = len(f"╭━━━━━━━━━━━━━━━━━━{hline * most}╮")
     distrolen = len(f"┃   DISTRO:    {distro}")
@@ -77,7 +77,7 @@ def menu(info):
     ramlen = len(f"┃      RAM:    {ram}")
     gpulen = len(f"┃      GPU:    {gpu}")
     wmlen = len(f"┃    WM/DE:    {wm}")
-    pkgslen = len(f"┃     PKGS:    {pkgs}")
+    #pkgslen = len(f"┃     PKGS:    {pkgs}")
     uptimelen = len(f"┃   UPTIME:    {uptime}")
     kernellen = len(f"┃   KERNEL:    {kernel}")
 
@@ -86,7 +86,7 @@ def menu(info):
     newrmlen = retrieveL(ramlen, end)
     newgplen = retrieveL(gpulen, end)
     newwmlen = retrieveL(wmlen, end)
-    newpklen = retrieveL(pkgslen, end)
+    #newpklen = retrieveL(pkgslen, end)
     newuplen = retrieveL(uptimelen, end)
     newkelen = retrieveL(kernellen, end)
 
@@ -99,7 +99,7 @@ def menu(info):
         f"{Fore.YELLOW}{Style.BRIGHT}\033[3m   RAM:{Style.RESET_ALL}\033[0m{Fore.BLUE}{spacing}{ram}{newrmlen}{Style.RESET_ALL}{Fore.RESET}",
         f"{Fore.YELLOW}{Style.BRIGHT}\033[3m   GPU:{Style.RESET_ALL}\033[0m{Fore.BLUE}{spacing}{gpu}{newgplen}{Style.RESET_ALL}{Fore.RESET}",
         f"{Fore.YELLOW}{Style.BRIGHT}\033[3m WM/DE:{Style.RESET_ALL}\033[0m{Fore.BLUE}{spacing}{wm}{newwmlen}{Style.RESET_ALL}{Fore.RESET}",
-        f"{Fore.YELLOW}{Style.BRIGHT}\033[3m  PKGS:{Style.RESET_ALL}\033[0m{Fore.BLUE}{spacing}{pkgs}{newpklen}{Style.RESET_ALL}{Fore.RESET}",
+        #f"{Fore.YELLOW}{Style.BRIGHT}\033[3m  PKGS:{Style.RESET_ALL}\033[0m{Fore.BLUE}{spacing}{pkgs}{newpklen}{Style.RESET_ALL}{Fore.RESET}",
         f"{Fore.YELLOW}{Style.BRIGHT}\033[3mUPTIME:{Style.RESET_ALL}\033[0m{Fore.BLUE}{spacing}{uptime}{newuplen}{Style.RESET_ALL}{Fore.RESET}",
         f"{Fore.YELLOW}{Style.BRIGHT}\033[3mKERNEL:{Style.RESET_ALL}\033[0m{Fore.BLUE}{spacing}{kernel}{newkelen}{Style.RESET_ALL}{Fore.RESET}",
 
@@ -117,5 +117,5 @@ def menu(info):
 
 
 info = ["Gentoo", "Threadripper 5000WX 5.2GHz", "128GB", "Nvidia RTX 4090",
-        "DWM", "2671", "5 Hours, 28 mins", "5.19.7-zen2-1-zen"]
+        "DWM", "5 Hours, 28 mins", "5.19.7-zen2-1-zen"]
 menu(info)
