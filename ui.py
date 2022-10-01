@@ -1,47 +1,47 @@
 from colorama import *
 
+
 class DistroIcons:
-    linux=""
-    almalinux=""
-    alpine=""
-    aosc="" # TODO Restore symbol
-    apple=""
-    archlabs=""
-    arch=""
-    artix=""
-    budgie=""
-    centos=""
-    coreos=""
-    debian=""
-    deepin=""
-    devuan=""
-    docker=""
-    elementary=""
-    endevour=""
-    fedora=""
-    freebsd=""
-    gentoo=""
-    guix=""
-    kali=""
-    mint=""
-    manjaro=""
-    nixos=""
-    openbsd=""
-    opensuse=""
-    parrot=""
-    popos=""
-    raspi=""
-    slackware=""
-    solus=""
-    ubuntu=""
-    void=""
-    zorin=""
-    windows=""
+    linux = ""
+    almalinux = ""
+    alpine = ""
+    aosc = ""  # TODO Restore symbol
+    apple = ""
+    archlabs = ""
+    arch = ""
+    artix = ""
+    budgie = ""
+    centos = ""
+    coreos = ""
+    debian = ""
+    deepin = ""
+    devuan = ""
+    docker = ""
+    elementary = ""
+    endevour = ""
+    fedora = ""
+    freebsd = ""
+    gentoo = ""
+    guix = ""
+    kali = ""
+    mint = ""
+    manjaro = ""
+    nixos = ""
+    openbsd = ""
+    opensuse = ""
+    parrot = ""
+    popos = ""
+    raspi = ""
+    slackware = ""
+    solus = ""
+    ubuntu = ""
+    void = ""
+    zorin = ""
+    windows = ""
 
 
-vline="┃"
-hline="━"
-
+vline = "┃"
+hline = "━"
 
 
 #   get spacing between info and menu end
@@ -49,27 +49,27 @@ def retrieveL(dlen, end):
     return " " * ((end - dlen) - 1)
 
 # shows menu
+
+
 def menu(info):
-    #get largest info
+    # get largest info
     lens = []
     for inf in info:
         lens.append(len(inf))
 
     most = max(lens)
 
-    
-    #get info variables
+    # get info variables
 
-    distro=info[0]
-    cpu=info[1]
-    ram=info[2]
-    gpu=info[3]
-    wm=info[4]
-    pkgs=info[5]
-    uptime=info[6]
-    kernel=info[7]
-    
-    
+    distro = info[0]
+    cpu = info[1]
+    ram = info[2]
+    gpu = info[3]
+    wm = info[4]
+    pkgs = info[5]
+    uptime = info[6]
+    kernel = info[7]
+
     end = len(f"╭━━━━━━━━━━━━━━━━━━{hline * most}╮")
     distrolen = len(f"┃   DISTRO:    {distro}")
     cpulen = len(f"┃      CPU:    {cpu}")
@@ -80,11 +80,6 @@ def menu(info):
     uptimelen = len(f"┃   UPTIME:    {uptime}")
     kernellen = len(f"┃   KERNEL:    {kernel}")
 
-
-
-
-
-
     newdilen = retrieveL(distrolen, end)
     newcplen = retrieveL(cpulen, end)
     newrmlen = retrieveL(ramlen, end)
@@ -93,7 +88,6 @@ def menu(info):
     newpklen = retrieveL(pkgslen, end)
     newuplen = retrieveL(uptimelen, end)
     newkelen = retrieveL(kernellen, end)
-
 
     spacing = " " * 4
 
@@ -114,13 +108,13 @@ def menu(info):
     menu = f"""
 ╭━━━━━━━━━━━━━━━━━━{hline * most}╮\n"""
     for field in fields:
-        menu+=f"┃   {field}┃\n"
+        menu += f"┃   {field}┃\n"
 
-
-    menu+=f"╰━━━━━━━━━━━━━━━━━━{hline * most}╯\n"
+    menu += f"╰━━━━━━━━━━━━━━━━━━{hline * most}╯\n"
 
     print(menu)
 
 
-info=["Gentoo", "Threadripper 5000WX 5.2GHz", "128GB", "Nvidia RTX 4090", "DWM", "2671", "5 Hours, 28 mins", "5.19.7-zen2-1-zen"]
+info = ["Gentoo", "Threadripper 5000WX 5.2GHz", "128GB", "Nvidia RTX 4090",
+        "DWM", "2671", "5 Hours, 28 mins", "5.19.7-zen2-1-zen"]
 menu(info)
