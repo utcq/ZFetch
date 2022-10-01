@@ -37,6 +37,7 @@ class DistroIcons:
     ubuntu = ""
     void = ""
     zorin = ""
+    garuda=""
     windows = ""
 
 

@@ -13,6 +13,7 @@ from time import time
 import psutil
 
 from ui import DistroIcons
+import ui
 
 
 def get_human_readable_freq_size(bytes, suffix="Hz"):
@@ -32,7 +33,7 @@ def get_human_readable_freq_size(bytes, suffix="Hz"):
 def get_human_readable_memory_size(bytes, suffix="B"):
     """
     Scale bytes to its proper format
-    e.g:
+        e.g:
         1253656 => '1.20MB'
         1253656678 => '1.17GB'
     """
@@ -95,3 +96,9 @@ class ZFetch:
         for distro in var:
             if distro.lower() in id():
                 return getattr(cls, distro)
+            if distro in id():
+                return getattr(cls, distro)
+        return DistroIcons.linux
+
+if __name__ == "__main__":
+    print(ZFetch().distro_sym)
