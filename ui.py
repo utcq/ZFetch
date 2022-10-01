@@ -50,7 +50,7 @@ for inf in info:
     lens.append(len(inf))
 
 most = max(lens)
-print(most)
+# print(most)
 
 distro=info[0]
 cpu=info[1]
@@ -74,4 +74,3 @@ menu = f"""
 """
 
 print(menu)
-
