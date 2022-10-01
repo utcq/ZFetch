@@ -4,7 +4,7 @@ class DistroIcons:
     linux=""
     almalinux=""
     alpine=""
-    aosc=""
+    aosc="" # TODO Restore symbol
     apple=""
     archlabs=""
     arch=""

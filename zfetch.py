@@ -33,3 +33,6 @@ class ZFetch:
     @property
     def get_cpu_freq(self):
         return (time(), self.cpu_freq.current)
+    
+    @property
+    def 
