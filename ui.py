@@ -61,8 +61,6 @@ def menu(info):
     cpu=info[1]
     ram=info[2]
 
-print(menu)
-=======
     end = len(f"╭━━━━━━━━━━━━━━━━━━{hline * most}╮")
     distrolen = len(f"┃   DISTRO:    {distro}")
     cpulen = len(f"┃      CPU:    {cpu}")
