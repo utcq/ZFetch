@@ -62,6 +62,7 @@ class ZFetch:
     def cpu_name(self):
         return platform.processor()
 
+    @property 
     def cpu_cores(self, *a, logical=True):
         return psutil.cpu_count(logical)
 
@@ -101,4 +102,6 @@ class ZFetch:
         return DistroIcons.linux
 
 if __name__ == "__main__":
-    print(ZFetch().distro_sym)
+    cpu = str(ZFetch().cpu_name) + " (" + str(ZFetch().cpu_cores) + ") " + '.'.join(str(int(ZFetch().cpu_frequency[0] / ZFetch().cpu_frequency[1] / ZFetch().cpu_cores))[0:2]) + "GHz"
+    ram_size = get_human_readable_memory_size(ZFetch().ram_size)
+    print(ram_size)
